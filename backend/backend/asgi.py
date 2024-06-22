@@ -16,6 +16,9 @@ from chat.routing import websocket_urlpatterns
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
+import django
+django.setup()
+
 application = ProtocolTypeRouter({
     'http': get_asgi_application(), 
     'websocket': AllowedHostsOriginValidator(
